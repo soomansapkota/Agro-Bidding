@@ -1,0 +1,218 @@
+<!--<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Farmer Form</title>
+<link rel="stylesheet"  href="" th:href="@{/css/login.css}">
+
+<script th:src="@{/js/index.js}"></script>
+</head>
+<body>
+     
+    <div class="container d-flex justify-content-center
+    align-items-center" 
+       style="min-height: 100vh">
+        <img src="" th:src="@{/images/agrobotics.png}" alt="Logo" class="logo">
+    <form th:action ="@{/fsignup}" name="myForm" th:onsubmit="return validateForm()" method="post">
+        
+        
+        <div class="mb-3" id="name">
+            <label class="form-label"> Username:</label >
+             <input class="form-control" type="text" name="username" id="username" required><b><span class="formerror"> </span></b>
+        </div>
+        <div class="mb-3" id="name">
+            <label class="form-label"> name:</label >
+             <input class="form-control" type="text" name="name" id="name" required><b><span class="formerror"> </span></b>
+        </div>
+        
+
+        <div class="mb-3" id="email">
+            <label class="form-label"> Email:</label >
+            <input class="form-control" type="email" name="email" required ><b><span class="formerror"> </span></b>
+        </div>
+             <div class="mb-3" id="pass">
+            <label class="form-label"> Password:</label > 
+            <input class="form-control" type="password" name="password" required><b><span class="formerror"></span></b>
+        </div>
+        <div class="mb-3" id="citizenship">
+            <label class="form-label"> Citizenship No:</label>
+             <input class="form-control" name="citizenshipnumber" required><b><span class="formerror"></span></b>
+        </div>
+        
+        <div class="mb-3" id="address">
+            <label class="form-label"> Address:</label > 
+            <input class="form-control" type="text"id="address" name="address" required><b><span class="formerror"></span></b>
+        </div>
+        <div class="mb-3">
+  <label class="form-label">Farmer Type:<br/></label>
+  <select class="form-select" name="category" height="60px"  required>
+    <option value="">Select Farmer Type</option>
+    <option value="Urban Farmer">Urban Farmer </option>
+    <option value="Hybrid Farmer">Hybrid Farmer</option>
+    <option value="Nursery Farmer">Nursery Farmer</option>
+     Add more options as needed 
+  </select>
+  <b><span class="formerror"></span></b>
+</div>
+        
+        
+        
+         <div class="mb-3" id="pass">
+            <label class="form-label"> Pan Number:</label > 
+            <input class="form-control" type="text" name="pannumber" ><b><span class="formerror"></span></b>
+        </div>
+
+      
+
+       
+           <input type="submit" value="Submit">
+        
+ <a href="/farmer">already have an account</a>
+    </form>
+    </div>
+    
+</body>
+      
+    
+
+
+</html>-->
+
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Farmer Form</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}" href="">
+    <script th:src="@{/js/index.js}"></script>
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh">
+        <img src="" th:src="@{/images/agrobotics.png}" alt="Logo" class="logo">
+        <form th:action="@{/fsignup}" name="myForm" onsubmit="return validateForm()" method="post">
+            <div class="mb-3" id="usernameDiv">
+                <label class="form-label">Username:</label>
+                <input class="form-control" type="text" name="username" id="username" required>
+                <b><span class="formerror" id="usernameError"></span></b>
+            </div>
+            <div class="mb-3" id="nameDiv">
+                <label class="form-label">Name:</label>
+                <input class="form-control" type="text" name="name" id="name" required>
+                <b><span class="formerror" id="nameError"></span></b>
+            </div>
+            <div class="mb-3" id="emailDiv">
+                <label class="form-label">Email:</label>
+                <input class="form-control" type="email" name="email" required>
+                <b><span class="formerror" id="emailError"></span></b>
+            </div>
+            <div class="mb-3" id="passDiv">
+                <label class="form-label">Password:</label>
+                <input class="form-control" type="password" name="password" required>
+                <b><span class="formerror" id="passwordError"></span></b>
+            </div>
+            <div class="mb-3" id="citizenshipDiv">
+                <label class="form-label">Citizenship No:</label>
+                <input class="form-control" name="citizenshipnumber" required>
+                <b><span class="formerror" id="citizenshipError"></span></b>
+            </div>
+            <div class="mb-3" id="addressDiv">
+                <label class="form-label">Address:</label>
+                <input class="form-control" type="text" id="address" name="address" required>
+                <b><span class="formerror" id="addressError"></span></b>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Farmer Type:</label>
+                <select class="form-select" name="category" height="60px" required>
+                    <option value="">Select Farmer Type</option>
+                    <option value="Urban Farmer">Urban Farmer</option>
+                    <option value="Hybrid Farmer">Hybrid Farmer</option>
+                    <option value="Nursery Farmer">Nursery Farmer</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <b><span class="formerror" id="categoryError"></span></b>
+            </div>
+            <div class="mb-3" id="panDiv">
+                <label class="form-label">Pan Number:</label>
+                <input class="form-control" type="text" name="pannumber">
+                <b><span class="formerror" id="panError"></span></b>
+            </div>
+            <input type="submit" value="Submit">
+            <a href="/farmer">Already have an account</a>
+        </form>
+    </div>
+    <script>
+        function clearErrors() {
+            var errors = document.getElementsByClassName('formerror');
+            for (var i = 0; i < errors.length; i++) {
+                errors[i].innerHTML = "";
+            }
+        }
+
+        function seterror(id, error) {
+            // Set error message inside the element with the given id
+            var element = document.getElementById(id + 'Error');
+            element.innerHTML = error;
+        }
+
+        function validateForm() {
+            var returnval = true;
+            clearErrors();
+
+            var alphaletters = /^[a-zA-Z]*$/;
+
+            var username = document.forms['myForm']["username"].value;
+            if (username.length < 4) {
+                seterror("username", "*Username must be at least 4 characters");
+                returnval = false;
+            } else if (!username.match(alphaletters)) {
+                seterror("username", "*Username must contain alphabets only");
+                returnval = false;
+            }
+
+            var name = document.forms['myForm']["name"].value;
+            if (name.length < 4) {
+                seterror("name", "*Name must be at least 4 characters");
+                returnval = false;
+            } else if (!name.match(alphaletters)) {
+                seterror("name", "*Name must contain alphabets only");
+                returnval = false;
+            }
+
+            var address = document.forms['myForm']["address"].value;
+            if (address.length < 4) {
+                seterror("address", "*Address must be at least 4 characters");
+                returnval = false;
+            } else if (!address.match(alphaletters)) {
+                seterror("address", "*Address must contain alphabets only");
+                returnval = false;
+            }
+
+            var email = document.forms['myForm']["email"].value;
+            var emailcharacter = /^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/;
+            if (!email.match(emailcharacter)) {
+                seterror("email", "*Invalid email format");
+                returnval = false;
+            }
+
+            var citizenship = document.forms['myForm']["citizenshipnumber"].value;
+            if (citizenship.length <= 2) {
+                seterror("citizenship", "*Citizenship must be greater than 2 digits!");
+                returnval = false;
+            }
+
+            var password = document.forms['myForm']["password"].value;
+            if (password.length < 6) {
+                seterror("password", "*Password should be at least 6 characters long!");
+                returnval = false;
+            }
+
+            return returnval;
+        }
+    </script>
+</body>
+
+</html>

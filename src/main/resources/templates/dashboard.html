@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>dashboard</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css" />
+<link rel="stylesheet"  href="" th:href="@{/css/formcss.css}">
+<style>
+
+.side-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top:2rem;
+	padding-left:20rem;
+}
+
+</style>
+</head>
+<body>
+
+
+<div class="dash-join">
+<span th:insert="bootstrapheader.html"></span>
+<div class="side-container">
+   
+       <table id="myTable">
+
+  
+      <thead>
+        <tr>
+          <th>Sn</th>
+          <th>Photo</th>
+          <th>Cost</th>
+          <th>Crop Type</th>
+          <th>Crop Name</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+      <tr th:each="l:${plist}">
+          <td th:text="${l.p_id}"></td>
+          <td><a th:href="@{/fbid/get/}+${l.p_id}">
+         <img  id="thumbnail" th:src="@{'/productImages/'+${l.images}}" alt="image" height="25px" width="25px" /></a></td>
+          <td th:text="${l.cost}"></td>
+          <td th:text="${l.breed}"></td>
+          <td th:text="${l.farm}"></td>
+          <td th:text="${l.start}"></td>
+          <td th:text="${l.end}"></td>
+          <td th:text="${l.status}"></td>
+          
+  <td>
+    <div class="btn-group" role="group">
+        <a th:href="@{/edit(id=${l.p_id})}" class="btn btn-sm btn-success">Edit</a>
+        <a th:href="@{/delete(id=${l.p_id})}" class="btn btn-sm btn-danger">Delete</a>
+    </div>
+</td>
+
+
+        </tr>
+      
+        
+      </tbody>
+  
+
+
+</table>
+   
+  </div>
+  </div>
+<script type="text/javascript">
+
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+
+
+
+
+</script>
+</body>
+</html>

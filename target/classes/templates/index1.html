@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Agro-Bidding</title>
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="" th:href="@{/css/style.css}">
+<link rel="stylesheet" href="" th:href="@{/css/home.css}">
+</head>
+<body>
+
+	<div th:insert="header1.html"></div>
+
+	<section class="backgroun_image">
+		
+		<div class="reflect_image">
+		<!-- 	<h1>Agriculture Do.</h1>
+			<button>See More</button>  -->
+		</div>
+
+
+	</section>
+  
+  
+  <div class="container">
+    <h3>About Us</h3>
+    <div class="about-content">
+    
+    <div class="left-container">
+     <img src="" th:src="@{/images/leaf.png}" alt="Logo">
+      <p>We tap the power of technology and computer vision to solve one of the biggest problems our world faces – cutting down food loss. We do so by digitizing the quality assessment of fresh fruits and vegetables. Our technology transforms quality processes, making them objective, efficient, and less wasteful. From growers to packers, from exporters to food services, anyone can use our smart, scalable solutions to digitize food quality, achieve fair pricing and reduce food food wastage. AgroBidding idea gives you the edge you need to make a food business thrive.</p>
+    </div>
+    <div class="right-container">
+  <img src="" th:src="@{/images/1 (1).jpg}" alt="Logo">
+    </div>
+  </div>
+
+  <div class="about-content">
+    
+    <div class="right-container">
+  <img src="" th:src="@{/images/1 (1).jpg}" alt="Logo">
+    </div>
+
+
+    <div class="left-container">
+       <img src="" th:src="@{/images/leaf.png}" alt="Logo" class="logo">
+      <p>Establish  two way communication system between farmer and retailer, products and tools useful for overall agricultural stages.
+ Remove technical and cultural barrier in the most simple and cost-effective way such that anyone can monitor real-time information from the farm.
+ Empower extension worker to provide better recommendation to the farmer through our district level agriculture advisory services center.!</p>
+    </div>
+    
+  </div>
+
+
+</div>
+</section>
+	</section>
+	<!-- About Us section end here -->
+	<!-- contact start -->
+	<div class="container">
+		<div class="contact-form">
+			<h2>Contact Us</h2>
+			<form action="/send" method="post">
+				<input type="text" name="name" placeholder="Your Name" required>
+				<input type="email" name="email" placeholder="Your Email" required>
+				<textarea name="message" placeholder="Your Message" rows="5"
+					required></textarea>
+				<input type="submit" value="Send message">
+			</form>
+		</div>
+	</div>
+	<!-- contact section ends here -->
+
+  <div class="container">
+    <div class="social-icon">
+      <p>Follow Us on</p>
+      <ul>
+        <li><a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.instagrm.com/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+  </div>
+	<div class="footer">
+		<div class="container">
+			<p id="copyright">
+				&copy; <span id="currentYear"></span> Agro-Bidding. All rights
+				reserved.
+			</p>
+		</div>
+	</div>
+
+	<script src="logic.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+</body>
+</html>

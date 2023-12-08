@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin</title>
+<link rel="stylesheet"  href="" th:href="@{/css/admin.css}">
+</head>
+<body>
+ <img src="" th:src="@{/images/agrobotics.png}" alt="Logo" class="logo">
+  <form th:action="@{/admindash}" method="get">
+  <h2>Login Form</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="Login">
+    </form>
+
+</body>
+</html>

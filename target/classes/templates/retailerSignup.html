@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Retailer Signup</title>
+<link rel="stylesheet" th:href="@{/css/login1.css}">
+
+</head>
+<body>
+
+<div class="container">
+    <img src="" th:src="@{/images/agrobotics.png}" alt="Logo" class="logo">
+    <form class="signup-form" method="post" th:action="@{/rsignup}" onsubmit="return validateForm()">
+       <h1>Sign Up</h1>
+        <div class="mb-3"id ="fname">
+       Name:  <input type="text" placeholder="Retailer Name" name="name" required />
+
+            <b><span class="formerror"></span></b>
+        </div>
+        <div class="mb-3" id="dropdown">
+          Retailer Type<br>
+         <select name="type" required>
+           <!-- <option value="">Select Retailer Type</option> -->
+           <option value=""> Choose Retailer Types.</option>
+        <option value="Retailer with Logistics">Retailer with Logistics</option>
+         <option value="Retailer without Logistics">Retailer without Logistics</option>
+         <b><span class="formerror"></span></b>
+       </select>
+        </div>
+         
+       <div class="mb-3" id="fusername">
+        Username<br>
+        <input type="text" placeholder="UserName" name="username" required />
+        <b><span class="formerror"></span></b>
+         </div>
+         <div class="mb-3" id="fadress">
+          Address<br>
+        <input type="text" placeholder="cityname-wardno,district" name="address" required />
+        <b><span class="formerror"></span></b>
+        </div>
+        <div class="mb-3" id="fpan">
+          Pan-Number<br>
+        <input type="text" placeholder="Pan-Number" name="pan" required/>
+        <b><span class="formerror"></span></b>
+        </div>
+        <div class="mb-3" id="fcitizenno">
+          Citizenship-Number<br>
+        <input type="text" placeholder="Citizenship-Number" name="cnumber" required />
+        <b><span class="formerror"></span></b>
+        </div>
+        <div class="mb-3" id="fpassword">
+          password<br>
+        <input type="password" placeholder="Password" name="password" required />
+        <b><span class="formerror"> </span></b>
+        </div>
+        
+        
+        <button type="submit">Sign Up</button>
+        <a href="/rlogin">Already have an account</a>
+    </form>
+  </div>
+<script src="" th:src="@{/js/index1.js}"></script>
+
+</body>
+</html>

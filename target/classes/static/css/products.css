@@ -1,0 +1,67 @@
+@charset "ISO-8859-1";
+.container{
+	width:1200px;
+	max-width:1000px;
+	margin: 20px auto;
+    padding: 0 20px
+}
+.card {
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.card:hover {
+  -webkit-box-shadow: 0 2px 4px rgb(0, 0, 0);
+          box-shadow: 0 2px 4px rgb(0, 0, 0);
+}
+.card img {
+  width: 100%;
+  height: auto;
+}
+.card-content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    padding: 20px;
+}
+.card-content h2 {
+  margin-top: 0;
+}
+.card-content p {
+  margin-bottom: 20px;
+}
+.card-content .btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #555;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.card-content .btn:hover {
+  background-color: #333;
+}
+
+.card-container{
+	display:flex;
+	justify-content: space-between;
+	
+}
+.grid-container {
+  margin-bottom: 60px;
+  grid-gap: 5rem;
+  margin-top: 59px;
+  display: grid;
+  grid-template-columns: repeat(3, 315px);
+}
+
+
+
+.btn:hover{
+	color: white!important;
+}
+
+
+/* 
+details page css *//*# sourceMappingURL=product.css.map */

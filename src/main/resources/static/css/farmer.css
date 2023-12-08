@@ -1,0 +1,33 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+form input[type="text"] {
+  padding: 5px;
+  width: 200px;
+  margin-right: 10px;
+}
+
+form button {
+  padding: 5px 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+table th {
+  background-color: #f2f2f2;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/formcss.css}">
+
+<style>
+
+.container{
+transform:translate(17rem,-39rem) !important;
+}
+
+</style>
+</head>
+<body>
+<div th:insert="bootstrapheader.html"></div>
+	
+	
+	<div class="container">
+		<form method="post" action="/update" th:object="${emodel}">
+			<h2>Farmer Form</h2>
+			<div class="row">
+			
+				<label for="farm">Farm Name:</label>
+				<input type="text" th:field="*{farm}" required>
+			</div>
+			<div class="row">
+				<label for="start">Start Date:</label>
+				<input type="date" th:field="*{start}" required>
+			</div>
+			<div class="row">
+				<label for="end">End Date:</label>
+				<input type="date" th:field="*{end}" required>
+			</div>
+			<div class="row">
+				<label for="amount">Amount:</label>
+				<input type="text" th:field="*{amount}" required>Kg
+			</div>
+			<div class="row">
+				<label for="breed">Breed Types:</label>
+				<select id="breed" th:field="*{breed}" required>
+					<option value="">Select Types:</option>
+					<option value="local">Local</option>
+					<option value="hybrid">Hybrid</option>
+				</select>
+			</div>
+			<div class="row">
+				<label for="status">Status:</label>
+				<select id="status" th:field="*{status}" required>
+					<option value="">Select Types:</option>
+					<option value="active">Active</option>
+					<option value="inactive">Inactive</option>
+				</select>
+			</div>
+			<div class="row">
+				<label for="cost">Cost:</label>
+				<input type="text" th:field="*{cost}" required>Rs
+			</div>
+			<div class="row">
+				<label for="geosituation">Geographical:</label>
+				<select id="geosituation" th:field="*{geosituation}" required>
+					<option value="">Select Geo-Situation</option>
+					<option value="hilly">Hilly</option>
+					<option value="himalayas">Himalayas</option>
+					<option value="terai">Terai</option>
+				</select>
+			</div>
+			<div class="row">
+				<label for="condition">Condition:</label>
+				<select id="condition" th:field="*{condation}" required>
+					<option value="">Select store condition</option>
+					<option value="dry">Dry</option>
+					<option value="cold">Cold</option>
+					<option value="heat">Heat</option>
+					<option value="moisture">Moisture</option>
+				</select>
+			</div>
+			<div class="row">
+				<input type="submit" value="update">
+			</div>
+			<input type="hidden" th:field="*{p_id}">
+		</form>
+	</div>
+</body>
+</html>
