@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>dashboard</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css" />
+<link rel="stylesheet"  href="" th:href="@{/css/formcss.css}">
+<style>
+
+.side-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top:2rem;
+	padding-left:20rem;
+}
+
+</style>
+</head>
+<body>
+
+
+<div class="dash-join">
+<span th:insert="admindashboard.html"></span>
+<div class="side-container">
+   
+       <table id="myTable">
+
+  
+      <thead>
+        <tr>
+		<th>U ID</th>
+          <th>Category</th>
+          <th>Pan No</th>
+          <th>Citizenship number</th>
+          <th>Email</th>
+
+        </tr>
+      </thead>
+      <tbody>
+		
+      
+      <tr th:each="admi:${add}">
+		  <td th:text="${admi.u_id}"></td>
+          <td th:text="${admi.category}"></td>
+          <td th:text="${admi.pannumber}"></td>
+          <td th:text="${admi.citizenshipnumber}"></td>
+          <td th:text="${admi.email}"></td>
+          
+          </tr>
+
+<!-- 
+    <div class="btn-group" role="group">
+        <a th:href="@{/edit}" class="btn btn-sm btn-success">Edit</a>
+        <a th:href="@{/delete}" class="btn btn-sm btn-danger">Delete</a>
+    </div>-->
+</td>
+
+
+        </tr>
+      
+        
+      </tbody>
+  
+
+
+</table>
+   
+  </div>
+  </div>
+<script type="text/javascript">
+
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+
+
+
+
+</script>
+</body>
+</html>

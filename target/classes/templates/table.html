@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Agro-Bidding</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+<link rel="stylesheet"  href="" th:href="@{/css/table.css}">
+    <!-- CSS Files -->
+ <link rel="stylesheet"  href="" th:href="@{/css/bootstrapmin.css}">
+     <link rel="stylesheet"  href="" th:href="@{/css/lightbootstrap.css}">
+         <link rel="stylesheet"  href="" th:href="@{/css/table.css}">
+    <!-- CSS Files -->
+ <link rel="stylesheet"  href="" th:href="@{/css/bootstrap.min.css}">
+     <link rel="stylesheet"  href="" th:href="@{/css/light-bootstrap-dashboard.css}">
+   <script th:inline="javascript">
+    /* Hide the success message after 5 seconds */
+    setTimeout(function() {
+        document.getElementById("success-message").style.display = "none";
+    }, 5000); // 5000 milliseconds (5 seconds)
+</script>
+   
+   
+</head>
+
+<body>
+<span th:insert="bootstrapheader.html"></span>
+        <div class="main-panel">
+			<div id="success-message" th:if="${successMessage}">
+    <div class="alert alert-success">
+        <strong>Success:</strong> <span th:text="${successMessage}"></span>
+    </div>
+</div>
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class="container-fluid">
+                   
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        
+                        <ul class="navbar-nav ml-auto">
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">
+                                    <span class="no-icon">Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            
+                <div class="container">
+                    <div class="card p-5 mt-5">
+                     <form  method="post" th:action="@{/product}" enctype="multipart/form-data">
+                       
+                        <div class="row">
+							 <input type="text" th:value="${f_id}" name="farmer" hidden>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstName">Crop Name</label>
+                                    <input type="text" class="form-control" id="firstName" name="pname" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastName">Farm Name</label>
+                                    <input type="text" class="form-control" id="lastName" name="farm">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstName">Start Date</label>
+                                    <input type="date" class="form-control" id="start" name="start">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastName">End Date</label>
+                                    <input type="date" class="form-control" id="end" name="end">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstName">Amount</label>
+                                            <b><span class="formerror"></span></b>
+                                    <input type="text" class="form-control" id="amount" name="amount">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-select form-select-lg mb-3">
+                                    <label for="lastName">Breed Type</label><br/>
+                                    <select id="breed" name="breed" required> 
+                                        <option value="">Select Types</option>
+                                        <option value="local">Local</option>
+                                        <option value="hybrid">Hybrid</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastName">Status</label><br/>
+                                    <select id="status" name="status" required> 
+                                        <option value="">Select Status</option>
+                                        <option value="active">Active</option>
+                                        <option value="inactive">InActive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastName">Cost</label>
+                                    <input type="text" class="form-control" id="cost" name="cost" placeholder="Rs. " required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                              
+                                <div class="form-group">
+                                    <label for="lastName">Category</label>
+                                    <input type="text" class="form-control" id="category" name="category" required>
+                                </div>
+                            </div> 
+                       
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastName">Geographical Situation</label><br/>
+                                    <select id="geosituation" name="geosituation" required> 
+                                        <option value="">Select Geo-Situation</option>
+                                        <option value="Himalayas">Himalayas</option>
+                                        <option value="Hilly">Hilly</option>
+                                        <option value="Terai">Terai</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastName">Geographical Condition</label><br/>
+                                    <select id="geosituation" name="condation" required> 
+                                        <option value="">Select Geographical Condition</option>
+                                        <option value="Dry">Dry</option>
+                                        <option value="Cold">Cold</option>
+                                        <option value="Heat">Heat</option>
+                                        <option value="Moisture">Moisture</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastName">Select Image</label>
+                                    <input type="file" class="form-control" id="file" name="file" required>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary float-right">Add</button>
+                    </form>
+                </div>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            <footer class="footer">
+                <div class="container">
+                    <nav>
+                        
+                        <p class="copyright text-center">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                            Agro-Bidding. All Right Reserved .
+                        </p>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+    </div>
+   
+</body>
+<!--   Core JS Files   -->
+<script src="../assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="../assets/js/plugins/bootstrap-switch.js"></script>
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!--  Chartist Plugin  -->
+<script src="../assets/js/plugins/chartist.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="../assets/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
+<script src="../assets/js/light-bootstrap-dashboard.js?v=2.0.0 " type="text/javascript"></script>
+<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
+<script src="../assets/js/demo.js"></script>
+<script>
+    var date = new Date();
+    //console.log(date);
+    var tdate = date.getDate();
+    //console.log(tdate);
+    var month = date.getMonth() +1;
+    if(tdate<10){
+        tdate = "0"+ tdate;
+    }
+
+    if(month<10){
+        month = "0"+ month;
+    }
+    var year = date.getFullYear();
+    var minDate= year + "-" + month+ "-" + tdate;
+    //console.log(minDate);
+ 
+    document.getElementById("start").setAttribute('min', minDate);
+ 
+    </script>
+    <script> // Get references to the date input elements 
+      const startDateInput = document.getElementById('start');
+     // console.log(startDateInput);
+      const endDateInput = document.getElementById('end');
+
+        // Add an event listener to the start date input
+        startDateInput.addEventListener('input', function() {
+        // Parse the selected start date
+        const startDate = new Date(this.value);
+
+        // If the start date is valid, enable the end date input
+        if (!isNaN(startDate)) {
+            endDateInput.disabled = false;
+            endDateInput.min = this.value; // Set the minimum selectable date for the end date
+        } else {
+            endDateInput.disabled = true;
+            endDateInput.min = ''; // Reset the minimum selectable date
+        }
+         });</script>
+         
+         <script>
+			 function clearErrors() {
+    var errors = document.getElementsByClassName('formerror');
+    for (var i = 0; i < errors.length; i++) {
+        errors[i].innerHTML = "";
+    }
+}
+
+function seterror(id, error) {
+    var element = document.getElementById(id);
+    element.getElementsByClassName('formerror')[0].innerHTML = error;
+    element.classList.add('has-error'); // Add 'has-error' class to the parent form-group
+
+}
+
+function validateForm() {  var returnval = true;
+    clearErrors();
+
+    // var alphaletters = /^[a-zA-Z]+$/;
+    // var numeric = /^[0-9]+$/;
+
+    // Validate Crop Name
+    var cropName = document.forms['adding']['pname'].value;
+    if (cropName.length < 4) {
+        seterror("cname", "Length of crop name must be at least 4 characters");
+        returnval = false;
+    } else if (!cropName.match(/[A-Za-z]+/i)) {
+        seterror("cname", "Crop name must contain alphabets only");
+        returnval = false;
+    }
+
+    // Validate Farm Name
+    var farmName = document.forms['adding']['farm'].value;
+    if (farmName.length < 4) {
+        seterror("lastName", "Length of farm name must be at least 4 characters");
+        returnval = false;
+    } else if (!farmName.match(/[A-Za-z]+/i)) {
+        seterror("lastName", "Farm name must contain alphabets only");
+        returnval = false;
+    }
+
+    // Validate Amount (Numeric and at least two digits)
+    var amount = document.forms['adding']['amount'].value;
+    if (!amount.match(/[0-9]+/i)) {
+        seterror("amt", "Amount must contain numeric value only");
+        returnval = false;
+    } else if (amount.length < 2) {
+        seterror("amt", "Amount must be at least two digits");
+        returnval = false;
+    }
+    //validate cost(Numeric and at least two digits)
+    var cost=document.forms['adding']['cost'].value;
+    if(!cost.match(/[0-9]+/i)) {  
+         seterror("cst", "cost must contain numeric value only");
+    returnval = false;
+                              } else if (amount.length < 2) {
+    seterror("cst", "cost must be at least two digits");
+    returnval = false;
+                                                            }
+    var catagory=document.forms['adding']['category'].value;
+    if(!catagory.match(/[A-Za-z]+/i)){
+        seterror("cat", "category must be of letters not numeric value");
+        returnval = false;
+
+    }else if(catagory.length<4){
+        seterror("cat", "category must be at least of three letters and geniune one");
+        returnval = false;
+
+
+    }}
+
+    return returnval;
+
+		 </script>
+</html>

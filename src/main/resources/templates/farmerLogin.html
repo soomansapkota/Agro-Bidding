@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"  href="" th:href="@{/css/login.css}">
+</head>
+<body>
+
+ <div class="container">
+    <img src="" th:src="@{/images/agrobotics.png}" alt="Logo" class="logo">
+    <form class="login-form" method="post" action="/flogin">
+      <h1>Login</h1>
+      
+      <p style="color:red">[[${message}]]</p>
+      <input type="text" placeholder="email" name="email">
+      <input type="text" placeholder="citizenship number" name="citizenshipnumber">
+      <button type="submit">Log in</button>
+      <a href="/signup">don't have account</a>
+    </form>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title></title>
+<link rel="stylesheet"  href="" th:href="@{/css/login.css}">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<style>
+a{
+	
+	text-decoration: none;
+	}
+	.link{
+		padding: 1rem;
+	}
+</style>
+</head>
+<body>
+	
+	<div class="container">
+    <img src="" th:src="@{/images/agrobotics.png}" alt="Logo" class="logo">
+    <form class="login-form" method="post" th:action="@{/login}">
+      <h1>Login</h1>
+      <p style="color:red">[[${message}]]</p>
+      <input type="text" placeholder="Username" name="username"/>
+     <input type="password" placeholder="password" name="password"/>
+  
+    <div class="g-recaptcha" data-sitekey="6Lduld0mAAAAAA6Nj0588LPBH1c9YwiAfhaOsbCk"></div>
+      <button type="submit">Log in</button>
+      <span class="link">
+      <a href="/rsignup">if you don't have account</a></span>
+    </form>
+  </div>
+</body>
+</html>

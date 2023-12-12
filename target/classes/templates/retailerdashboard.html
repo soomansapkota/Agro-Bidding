@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css" />
+<link rel="stylesheet"  href="" th:href="@{/css/formcss.css}">
+<style>
+
+
+.container{
+transform:translate(20rem,-30rem) !important;
+}
+
+
+</style>
+</head>
+<body>
+<div class="dash-join">
+<div th:insert="bootstrapheader2.html"></div>
+<div class="container">
+<table id="mytable">
+
+
+	 <thead>
+        <tr>
+          <th>Sn</th>
+          <th>Photo</th>
+          <th>Initital Cost</th>
+          <th>Crop Name</th>
+          <th>Crop Type</th>
+          <th>[[${r1}]]</th>
+          <th>[[${r2}]]</th>
+          <th>[[${r3}]]</th>
+         
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+      
+      <tr th:each="l:${plist}">
+          <td th:text="${l.id}"></td>
+          <td>
+         <img  id="thumbnail" alt="image"  /></td>
+          <td th:text="${l.cost}"></td>
+          <td th:text="${l.cropname}"></td>
+          <td th:text="${l.croptype}"></td>
+          <td th:text="${l.cost1}"></td>
+          <td th:text="${l.cost2}"></td>
+          <td th:text="${l.cost3}"></td>
+          
+  <td>
+    <div class="btn-group" role="group">
+        <a th:href="/bid" class="btn btn-sm btn-success">Bid</a>
+      
+    </div>
+</td>
+
+
+        </tr>
+      
+      
+        
+      </tbody>
+  
+
+
+</table>
+</div>
+</div>
+<script type="text/javascript">
+
+$(document).ready( function () {
+    $('#mytable').DataTable();
+} );
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

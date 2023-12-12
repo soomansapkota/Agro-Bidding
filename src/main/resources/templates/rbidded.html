@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Centered Card with Table</title>
+	<style>
+		/* Center the card vertically and horizontally */
+
+
+		button {
+			background-color: rgb(128, 255, 0);
+			height: 40px;
+			width: 100px;
+		}
+
+
+		.container {
+			padding: 2rem;
+
+
+
+		}
+
+		/* Style the card container */
+		.r-card {
+			width: 80%;
+			padding: 30px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			display: flex;
+			justify-content: right;
+			transform: translateX(15rem);
+
+		}
+
+		/* Style the table */
+		table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		/* Style table headers */
+		th {
+			background-color: rgb(128, 255, 128);
+			text-align: left;
+			padding: 8px;
+		}
+
+		/* Style table rows */
+		tr:nth-child(even) {
+			background-color: rgb(192, 192, 192);
+		}
+
+		/* Style table data cells */
+		td {
+			padding: 8px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="dash-join">
+		<span th:insert="bootstrapheader2.html"></span>
+		<div class="container">
+			<div class="r-card">
+				<table>
+					<thead>
+						<tr>
+							<th>Product Name</th>
+							<th>Bid Amount</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+
+					<tbody>
+
+
+
+
+
+						<!--<tr th:each="l:${bidList},map:${bids}">
+							<th:block th:each="e:${map}">
+							<td th:text="${e.key}"></td>
+							<td th:text="${e.value}"></td>
+							</th:block>
+							
+								<td th:text="${l.status}"></td>
+							</tr>
+							-->
+							<tr th:each="l:${bidList}">
+							<td th:text="${l.p_id.Pname}"></td>
+							<td th:text="${l.bidamount}"></td>
+							<td>
+								<th:block th:unless="${l.status}">Pending..</th:block>
+								<th:block th:if="${l.status}">Your Bid has ben accepted</th:block>
+								</td>
+							</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
